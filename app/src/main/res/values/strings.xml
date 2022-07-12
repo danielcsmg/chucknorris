@@ -3,6 +3,7 @@
     <string name="piada_aqui">Piada aqui!</string>
     <string name="chuck_norris">Chuck Norris</string>
     <string name="nova_piada">Nova Piada</string>
+    <string name="chuck_norris_no_description">Não se pode descrever Chuck Norris</string>
     <string-array name="cathegory_joke_array">
         <item>animal</item>
         <item>career</item>
