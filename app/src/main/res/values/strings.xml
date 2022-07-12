@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Chuck Norris Joke API</string>
+    <string name="piada_aqui">Piada aqui!</string>
+    <string name="chuck_norris">Chuck Norris</string>
+    <string name="nova_piada">Nova Piada</string>
+    <string-array name="cathegory_joke_array">
+        <item>animal</item>
+        <item>career</item>
+        <item>celebrity</item>
+        <item>dev</item>
+        <item>fashion</item>
+        <item>food</item>
+        <item>history</item>
+        <item>money</item>
+        <item>movie</item>
+        <item>music</item>
+        <item>political</item>
+        <item>religion</item>
+        <item>science</item>
+        <item>sport</item>
+        <item>travel</item>
+    </string-array>
+</resources>
