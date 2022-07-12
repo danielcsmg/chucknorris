@@ -17,5 +17,6 @@ data class JokeResponse(
     @SerializedName("url")
     val url: String,
     @SerializedName("value")
-    val value: String
+    val value: String,
+    var favorite: Boolean = false
 )

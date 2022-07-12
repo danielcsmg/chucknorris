@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.zup.chucknorrisjokeapi.RANDOM
 import br.com.zup.chucknorrisjokeapi.URL_CHUCK_NORRIS
+import br.com.zup.chucknorrisjokeapi.data.model.JokeResponse
 import br.com.zup.chucknorrisjokeapi.databinding.ActivityCathegoryJokeBinding
 import br.com.zup.chucknorrisjokeapi.ui.cathegoryjoke.viewmodel.JokeViewModel
 import br.com.zup.desafiorickemorty.ui.viewstate.ViewState
@@ -34,6 +35,15 @@ class CategoryJokeActivity : AppCompatActivity() {
         }
         observer()
         observerCathegory()
+
+    }
+
+    private fun messageFavorite(favorite: Boolean){
+        if (!favorite){
+            Toast.makeText(this, "Piada favoritada", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this, "Chuck Norris já é o favorito", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun observer(){
