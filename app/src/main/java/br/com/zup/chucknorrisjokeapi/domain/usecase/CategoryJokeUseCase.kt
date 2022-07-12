@@ -7,7 +7,7 @@ import br.com.zup.chucknorrisjokeapi.domain.repository.JokeRepository
 import br.com.zup.desafiorickemorty.ui.viewstate.ViewState
 
 class CategoryJokeUseCase {
-    val jokeRepository = JokeRepository()
+    private val jokeRepository = JokeRepository()
 
     suspend fun getRandomJoke(category: String): ViewState<JokeResponse> {
         return try {
@@ -24,7 +24,7 @@ class CategoryJokeUseCase {
 
     suspend fun getCathegory(): ViewState<JokeCategory> {
         return try {
-            val cathegory = jokeRepository.getCathegory()
+            val cathegory = jokeRepository.getCategory()
             ViewState.Success(cathegory)
         } catch (e: Exception) {
             ViewState.Error(Throwable("A única categoria é Chuck Norris"))

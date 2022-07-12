@@ -5,15 +5,16 @@ import br.com.zup.chucknorrisjokeapi.data.model.JokeCategory
 import br.com.zup.chucknorrisjokeapi.data.model.JokeResponse
 
 class JokeRepository {
-    suspend fun getRandomCNJoke(cathegory: String): JokeResponse{
-        return RetrofitService.apiService.getRamdomJoke(cathegory)
+
+    suspend fun getRandomCNJoke(category: String): JokeResponse{
+        return RetrofitService.apiService.getRamdomJoke(category)
     }
 
     suspend fun getRandomCNJoke(): JokeResponse{
         return RetrofitService.apiService.getRamdomJoke()
     }
 
-    suspend fun getCathegory(): JokeCategory {
+    suspend fun getCategory(): JokeCategory {
         return RetrofitService.apiService.getCategory()
     }
 }
