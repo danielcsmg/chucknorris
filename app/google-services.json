@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "305548270887",
+    "project_id": "chucknorrisapp-764ce",
+    "storage_bucket": "chucknorrisapp-764ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305548270887:android:0d7d44c66ce415e9c45d02",
+        "android_client_info": {
+          "package_name": "br.com.zup.chucknorrisjokeapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "305548270887-gcifs4kvqi1drob5l3l48cfsd7utffmi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB-xfna85Zh9KBAU7YF6TO2MJeUPOZFUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "305548270887-gcifs4kvqi1drob5l3l48cfsd7utffmi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

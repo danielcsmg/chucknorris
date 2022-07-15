@@ -7,25 +7,34 @@
     tools:context=".ui.cathegoryjoke.view.CategoryJokeActivity">
 
     <ImageView
-        android:layout_marginTop="10dp"
         android:id="@+id/ivChuckNoris"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_marginTop="10dp"
         android:contentDescription="@string/chuck_norris"
         android:src="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvUserLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:text="@string/login_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivChuckNoris" />
+
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/spnCathegory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_60"
-        android:layout_marginTop="@dimen/dimen_30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivChuckNoris" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUserLogin" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -48,7 +57,7 @@
             android:gravity="center"
             android:text="@string/piada_aqui"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dimen_text_16" />
 
     </androidx.cardview.widget.CardView>
 
@@ -64,6 +73,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivChuckNoris"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.75" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

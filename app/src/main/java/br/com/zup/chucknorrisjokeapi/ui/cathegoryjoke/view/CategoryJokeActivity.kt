@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.zup.chucknorrisjokeapi.RANDOM
 import br.com.zup.chucknorrisjokeapi.URL_CHUCK_NORRIS
 import br.com.zup.chucknorrisjokeapi.databinding.ActivityCathegoryJokeBinding
+import br.com.zup.chucknorrisjokeapi.domain.model.User
 import br.com.zup.chucknorrisjokeapi.ui.cathegoryjoke.viewmodel.JokeViewModel
 import br.com.zup.desafiorickemorty.ui.viewstate.ViewState
 import com.squareup.picasso.Picasso
@@ -25,6 +26,12 @@ class CategoryJokeActivity : AppCompatActivity() {
         binding = ActivityCathegoryJokeBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        showUser()
         viewModel.getRandomJoke(RANDOM)
         viewModel.getCategory()
         Picasso.get().load(URL_CHUCK_NORRIS).into(binding.ivChuckNoris)
@@ -72,5 +79,12 @@ class CategoryJokeActivity : AppCompatActivity() {
             arraySpinner
         )
         binding.spnCathegory.adapter = arrayAdapter
+    }
+
+    private fun showUser(){
+        val user_login = intent.getParcelableExtra<User>("USER_KEY")?.email
+        user_login?.let {
+            binding.tvUserLogin.text = it
+        }
     }
 }
