@@ -1,15 +1,21 @@
 package br.com.zup.chucknorrisjokeapi.ui.cathegoryjoke.view
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import br.com.zup.chucknorrisjokeapi.R
 import br.com.zup.chucknorrisjokeapi.RANDOM
 import br.com.zup.chucknorrisjokeapi.URL_CHUCK_NORRIS
 import br.com.zup.chucknorrisjokeapi.databinding.ActivityCathegoryJokeBinding
 import br.com.zup.chucknorrisjokeapi.domain.model.User
 import br.com.zup.chucknorrisjokeapi.ui.cathegoryjoke.viewmodel.JokeViewModel
+import br.com.zup.chucknorrisjokeapi.ui.login.view.LoginActivity
 import br.com.zup.desafiorickemorty.ui.viewstate.ViewState
 import com.squareup.picasso.Picasso
 
@@ -82,9 +88,31 @@ class CategoryJokeActivity : AppCompatActivity() {
     }
 
     private fun showUser(){
-        val user_login = intent.getParcelableExtra<User>("USER_KEY")?.email
-        user_login?.let {
-            binding.tvUserLogin.text = it
+        val userLogin = intent.getParcelableExtra<User>("USER_KEY")?.email
+        userLogin?.let {
+            binding.tvUserLogin.text = getString(R.string.login_user, it)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.exit -> {
+                viewModel.logout()
+                finish()
+                goToLogin()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun goToLogin() {
+        startActivity(Intent(this, LoginActivity::class.java))
     }
 }

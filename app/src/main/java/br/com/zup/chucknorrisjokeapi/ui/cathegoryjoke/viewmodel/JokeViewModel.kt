@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.zup.chucknorrisjokeapi.data.model.JokeCategory
 import br.com.zup.chucknorrisjokeapi.data.model.JokeResponse
+import br.com.zup.chucknorrisjokeapi.domain.repository.AuthenticationRepository
 import br.com.zup.chucknorrisjokeapi.domain.usecase.CategoryJokeUseCase
 import br.com.zup.desafiorickemorty.ui.viewstate.ViewState
 import kotlinx.coroutines.Dispatchers
@@ -13,6 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class JokeViewModel : ViewModel() {
+    private val authenticationRepository = AuthenticationRepository()
     private val jokeUseCase = CategoryJokeUseCase()
     private val _jokeResponse = MutableLiveData<ViewState<JokeResponse>>()
     val jokeResponse: LiveData<ViewState<JokeResponse>> = _jokeResponse
@@ -47,4 +49,6 @@ class JokeViewModel : ViewModel() {
             )
         }
     }
+
+    fun logout() = authenticationRepository.logout()
 }
