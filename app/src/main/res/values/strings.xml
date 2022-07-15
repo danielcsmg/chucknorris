@@ -10,5 +10,6 @@
     <string name="register">Registrar</string>
     <string name="register_text">Registro</string>
     <string name="register_now">registre-se</string>
-    <string name="login_user">User: %s</string>
+    <string name="login_user">Olá, %s</string>
+    <string name="sair">Sair</string>
 </resources>
