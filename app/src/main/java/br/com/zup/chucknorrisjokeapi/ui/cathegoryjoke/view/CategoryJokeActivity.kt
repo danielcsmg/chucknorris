@@ -15,6 +15,7 @@ import br.com.zup.chucknorrisjokeapi.URL_CHUCK_NORRIS
 import br.com.zup.chucknorrisjokeapi.databinding.ActivityCathegoryJokeBinding
 import br.com.zup.chucknorrisjokeapi.ui.cathegoryjoke.viewmodel.JokeViewModel
 import br.com.zup.chucknorrisjokeapi.ui.favoritejokes.view.FavoriteJokesActivity
+import br.com.zup.chucknorrisjokeapi.ui.home.view.HomeActivity
 import br.com.zup.chucknorrisjokeapi.ui.login.view.LoginActivity
 import br.com.zup.desafiorickemorty.ui.viewstate.ViewState
 import com.google.android.material.snackbar.Snackbar
@@ -125,6 +126,11 @@ class CategoryJokeActivity : AppCompatActivity() {
                 viewModel.logout()
                 finish()
                 goToLogin()
+                true
+            }
+            R.id.home -> {
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)

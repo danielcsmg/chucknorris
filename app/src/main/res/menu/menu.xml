@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_exit_to_app"
         android:title="@string/sair"/>
 
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:title="@string/message"/>
+
 </menu>
