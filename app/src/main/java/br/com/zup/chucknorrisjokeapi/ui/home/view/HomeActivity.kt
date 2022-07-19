@@ -11,7 +11,6 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var viewModel: HomeViewModel
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -43,9 +42,6 @@ class HomeActivity : AppCompatActivity() {
         viewModel.lastNotification.observe(this) {
             binding.tvNotification.text = it.body
             binding.tvNotificationTitle.text = it.title
-
         }
     }
-
-
 }

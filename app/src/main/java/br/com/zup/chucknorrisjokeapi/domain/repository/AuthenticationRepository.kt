@@ -3,7 +3,6 @@ package br.com.zup.chucknorrisjokeapi.domain.repository
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -14,10 +13,10 @@ class AuthenticationRepository {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
-    fun updateUserProfile(): Task<Void>? {
-        val profile = UserProfileChangeRequest.Builder().build()
-        return auth.currentUser?.updateProfile(profile)
-    }
+//    fun updateUserProfile(nome: String): Task<Void>? {
+//        val profile = UserProfileChangeRequest.Builder().setDisplayName(nome).build()
+//        return auth.currentUser?.updateProfile(profile)
+//    }
 
     fun logout(){
         auth.signOut()

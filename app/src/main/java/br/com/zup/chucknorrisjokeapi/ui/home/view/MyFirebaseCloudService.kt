@@ -1,9 +1,6 @@
 package br.com.zup.chucknorrisjokeapi.ui.home.view
 
-import android.app.Service
 import android.content.Intent
-import android.os.IBinder
-import android.util.Log
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
