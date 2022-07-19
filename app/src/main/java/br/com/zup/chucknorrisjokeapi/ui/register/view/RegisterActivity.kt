@@ -31,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun initObservers() {
         viewModel.registerState.observe(this) {
-            goToJoke(it)
+            goToJoke()
         }
 
         viewModel.errorState.observe(this) {
@@ -39,10 +39,8 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun goToJoke(user: User) {
-        val intent = Intent(this, CategoryJokeActivity::class.java).apply {
-            putExtra("USER_KEY", user)
-        }
+    private fun goToJoke() {
+        val intent = Intent(this, CategoryJokeActivity::class.java)
         startActivity(intent)
     }
 

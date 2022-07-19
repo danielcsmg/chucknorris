@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ChuckNorrisJokeAPI"
         tools:targetApi="31">
         <activity
+            android:name=".ui.favoritejokes.view.FavoriteJokesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.register.view.RegisterActivity"
             android:exported="false" />
         <activity

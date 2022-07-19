@@ -22,10 +22,10 @@ class CategoryJokeUseCase {
         }
     }
 
-    suspend fun getCathegory(): ViewState<JokeCategory> {
+    suspend fun getCategory(): ViewState<JokeCategory> {
         return try {
-            val cathegory = jokeRepository.getCategory()
-            ViewState.Success(cathegory)
+            val category = jokeRepository.getCategory()
+            ViewState.Success(category)
         } catch (e: Exception) {
             ViewState.Error(Throwable("A única categoria é Chuck Norris"))
         }

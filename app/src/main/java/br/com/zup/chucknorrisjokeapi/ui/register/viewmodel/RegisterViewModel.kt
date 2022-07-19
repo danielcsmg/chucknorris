@@ -29,7 +29,7 @@ class RegisterViewModel: ViewModel() {
                 user.email,
                 user.password
             ).addOnSuccessListener {
-                authenticationRepository.updateUserProfile()
+//                authenticationRepository.updateUserProfile()
                 _registerState.value = user
             }.addOnFailureListener {
                 _errorState.value = "Usuário não foi registrado!" + it.message

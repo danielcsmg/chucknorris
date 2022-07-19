@@ -12,5 +12,6 @@
     <string name="register_now">registre-se</string>
     <string name="login_user">Olá, %s</string>
     <string name="sair">Sair</string>
-    <string name="favorite_joke">Favoritar</string>
+    <string name="favorite_joke">Favoritas</string>
+    <string name="delete">Delete</string>
 </resources>

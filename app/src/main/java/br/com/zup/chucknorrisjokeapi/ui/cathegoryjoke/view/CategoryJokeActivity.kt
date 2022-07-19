@@ -8,16 +8,16 @@ import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import br.com.zup.chucknorrisjokeapi.R
 import br.com.zup.chucknorrisjokeapi.RANDOM
 import br.com.zup.chucknorrisjokeapi.URL_CHUCK_NORRIS
 import br.com.zup.chucknorrisjokeapi.databinding.ActivityCathegoryJokeBinding
-import br.com.zup.chucknorrisjokeapi.domain.model.User
 import br.com.zup.chucknorrisjokeapi.ui.cathegoryjoke.viewmodel.JokeViewModel
+import br.com.zup.chucknorrisjokeapi.ui.favoritejokes.view.FavoriteJokesActivity
 import br.com.zup.chucknorrisjokeapi.ui.login.view.LoginActivity
 import br.com.zup.desafiorickemorty.ui.viewstate.ViewState
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 
 class CategoryJokeActivity : AppCompatActivity() {
@@ -46,26 +46,47 @@ class CategoryJokeActivity : AppCompatActivity() {
             val category = binding.spnCathegory.selectedItem.toString()
             viewModel.getRandomJoke(category)
         }
+        clickButtonFavoriteJokes()
+        favoriteJoke()
         observer()
-        observerCathegory()
+        observerCategory()
     }
 
-    private fun observer(){
-        viewModel.jokeResponse.observe(this){
-            when(it){
-                is ViewState.Success -> {
-                    binding.tvJoke.text = it.data.value
-                }
-                is ViewState.Error -> {
-                    binding.tvJoke.text = it.throwable.message
-                }
-            }
+    private fun favoriteJoke() {
+        binding.cvJoke.setOnClickListener {
+            viewModel.saveFavoriteJoke()
         }
     }
 
-    private fun observerCathegory() {
-        viewModel.jokeCathegoryResponse.observe(this){
-            when(it){
+    private fun clickButtonFavoriteJokes() {
+        binding.btnFavorite.setOnClickListener {
+            goToFavoriteJokes()
+        }
+    }
+
+    private fun observer() {
+        viewModel.jokeResponse.observe(this) {
+            when (it) {
+                is ViewState.Success -> {
+                    binding.tvJoke.text = it.data.value
+                    viewModel.getCurrentJoke(it.data)
+                }
+                is ViewState.Error -> Snackbar.make(
+                    binding.root,
+                    "${it.throwable.message}",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        viewModel.message.observe(this) {
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun observerCategory() {
+        viewModel.jokeCategoryResponse.observe(this) {
+            when (it) {
                 is ViewState.Success -> {
                     spinnerArray.addAll(it.data)
                     setSpinner()
@@ -77,8 +98,7 @@ class CategoryJokeActivity : AppCompatActivity() {
         }
     }
 
-    private fun setSpinner(){
-
+    private fun setSpinner() {
         val arraySpinner = spinnerArray.toList()
         val arrayAdapter = ArrayAdapter(
             this,
@@ -88,11 +108,9 @@ class CategoryJokeActivity : AppCompatActivity() {
         binding.spnCathegory.adapter = arrayAdapter
     }
 
-    private fun showUser(){
-        val userLogin = intent.getParcelableExtra<User>("USER_KEY")?.email
-        userLogin?.let {
-            binding.tvUserLogin.text = getString(R.string.login_user, it)
-        }
+    private fun showUser() {
+        val userLogin = viewModel.getUserMail()
+        binding.tvUserLogin.text = getString(R.string.login_user, userLogin)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -102,7 +120,7 @@ class CategoryJokeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.exit -> {
                 viewModel.logout()
                 finish()
@@ -115,5 +133,9 @@ class CategoryJokeActivity : AppCompatActivity() {
 
     private fun goToLogin() {
         startActivity(Intent(this, LoginActivity::class.java))
+    }
+
+    private fun goToFavoriteJokes(){
+        startActivity(Intent(this, FavoriteJokesActivity::class.java))
     }
 }
