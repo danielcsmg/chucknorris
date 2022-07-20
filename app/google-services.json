@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "305548270887",
-    "project_id": "chucknorrisapp-764ce",
-    "storage_bucket": "chucknorrisapp-764ce.appspot.com"
+    "project_number": "370494250994",
+    "project_id": "chuck-norris-app",
+    "storage_bucket": "chuck-norris-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:305548270887:android:0d7d44c66ce415e9c45d02",
+        "mobilesdk_app_id": "1:370494250994:android:abe7c53bb3fe98c7c2156b",
         "android_client_info": {
           "package_name": "br.com.zup.chucknorrisjokeapi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "305548270887-gcifs4kvqi1drob5l3l48cfsd7utffmi.apps.googleusercontent.com",
+          "client_id": "370494250994-hqb82vl0n695vm7rrnd4rmnqadm9ei0n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBB-xfna85Zh9KBAU7YF6TO2MJeUPOZFUw"
+          "current_key": "AIzaSyCcvB10uQfdi_s4OK4AkXyXVDU6x2_hkg0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "305548270887-gcifs4kvqi1drob5l3l48cfsd7utffmi.apps.googleusercontent.com",
+              "client_id": "370494250994-hqb82vl0n695vm7rrnd4rmnqadm9ei0n.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

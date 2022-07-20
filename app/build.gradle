@@ -4,8 +4,8 @@ plugins {
     id 'kotlin-parcelize'
 //    Kapt para implementar as classes no Kotlin
     id 'kotlin-kapt'
-    id 'com.google.gms.google-services'
-    id 'com.google.firebase.crashlytics'
+//    id 'com.google.gms.google-services'
+//    id 'com.google.firebase.crashlytics'
 
 
 }
@@ -72,8 +72,10 @@ dependencies {
 
     //############ NETWORK CONNECTIONS #############################/
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.2.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.10.0"
 
     //################### PICASSO IMAGE LOADER ######################/
     implementation 'com.squareup.picasso:picasso:2.71828'
 }
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
